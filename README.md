@@ -13,6 +13,18 @@ Gazebo上で動作を確認しましたが、だるま落としを安定して�
 
 - `artifacts/daruma_act_model/config.json`：ACTモデル設定
 - `artifacts/daruma_act_model/model.safetensors`：学習済み重み（Git LFS）
+- `session_20261030_submission/`：提出用に保存したコンテナ内データのバックアップ
+- `World/`：Gazebo用ワールドなどのカスタムファイル
+
+バックアップには、学習・推論に使用したスクリプトや設定、データセットなどが含まれます。元のROS 2、Gazebo、LeRobotのソース一式ではなく、今回の作業で作成・変更したファイルを確認するための資料として収録しています。
+
+## 学習データ
+
+最終モデルは、`daruma_key_v2`の全20エピソードから選定した10エピソードを使って学習しました。選定したエピソードは`ep1`、`ep2`、`ep4`、`ep10`、`ep13`、`ep14`、`ep15`、`ep17`、`ep18`、`ep19`です。
+
+元のrosbagと変換後のLeRobotデータセットは、`session_20261030_submission/`内に収録しています。最終モデルの学習に使ったデータは、`daruma_key_v2`の全20エピソードから選んだ上記10エピソードです。変換後のデータセットは合計8,092フレームです。
+
+`World/`にはGazeboのカスタムワールドを含みます。CRANE+ V2のハンマー付きモデルや関連する変更ファイルも、バックアップ内の`airobot_ws`以下を参照してください。
 
 ## 動作確認環境
 
@@ -57,7 +69,7 @@ ros2 run physicalai_pubsub action_publisher
 
 ### LeRobotと推論コード
 
-推論には、別途`pai_training`プロジェクトと、その中の` scrips/infer.py `が必要です。この推論コードは本リポジトリには含まれていません。
+推論には、別途`pai_training`プロジェクトと、その中の`scripts/infer.py`が必要です。この推論コードは本リポジトリには含まれていません。
 
 ## モデルの取得
 
