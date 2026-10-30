@@ -1,0 +1,4 @@
+bag_dir: "/home/ubuntu/dataset/rosbags/daruma_key_v2_top10"
+output_dir: "/home/ubuntu/dataset/lerobot_dataset/daruma_key_v2_top10"
+config: "configs/crane_features_daruma_key_v2_top10.py"
+target_freq: 20
