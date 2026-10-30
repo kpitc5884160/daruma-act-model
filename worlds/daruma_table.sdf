@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-user-commands-system"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+    <include>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Sun
+      </uri>
+    </include>
+
+    <include>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Ground%20Plane
+      </uri>
+    </include>
+
+    <include>
+      <uri>
+        https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Table
+      </uri>
+      <pose>0.29 0 0 0 0 1.5708</pose>
+    </include>
+
+    <model name="daruma_disk_bottom">
+      <pose>0 -0.1 1.0225 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.00000525</ixx>
+            <iyy>0.00000525</iyy>
+            <izz>0.000009375</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.2 0.9 1</ambient>
+            <diffuse>0.1 0.2 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="daruma_disk_middle">
+      <pose>0 -0.1 1.0375 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.00000525</ixx>
+            <iyy>0.00000525</iyy>
+            <izz>0.000009375</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.2 0.2 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="daruma_disk_top">
+      <pose>0 -0.1 1.0525 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.00000525</ixx>
+            <iyy>0.00000525</iyy>
+            <izz>0.000009375</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.9 0.1 0.1 1</ambient>
+            <diffuse>0.9 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="daruma_head">
+      <pose>0 -0.1 1.06 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <pose>0 0 0.01875 0 0 0</pose>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.000012109375</ixx>
+            <iyy>0.000012109375</iyy>
+            <izz>0.0000140625</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+
+        <collision name="body_collision">
+          <pose>0 0 0.0125 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.025</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <collision name="cap_collision">
+          <pose>0 0 0.025 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.025</radius>
+            </sphere>
+          </geometry>
+        </collision>
+
+        <visual name="body_visual">
+          <pose>0 0 0.0125 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.025</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="cap_visual">
+          <pose>0 0 0.025 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.025</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="hammer_preview">
+      <pose>0.12 0.0 1.021 0 0 0</pose>
+      <static>true</static>
+      <link name="hammer">
+        <collision name="head_collision">
+          <geometry>
+            <box>
+              <size>0.015 0.06 0.012</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="handle_collision">
+          <pose>0 0 0.055 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <visual name="head_visual">
+          <geometry>
+            <box>
+              <size>0.015 0.06 0.012</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.35 0.35 0.38 1</ambient>
+            <diffuse>0.35 0.35 0.38 1</diffuse>
+          </material>
+        </visual>
+        <visual name="handle_visual">
+          <pose>0 0 0.055 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.45 0.25 0.1 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
